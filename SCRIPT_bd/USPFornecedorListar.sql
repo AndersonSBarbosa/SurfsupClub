@@ -1,0 +1,46 @@
+PRINT Db_Name()+', Criação da Procedure USPFornecedorListar'
+
+GO
+--------------------------------------------------------------------------------------
+-- OBJETO: USPFornecedorListar – RESPONSÁVEL: Anderson – DATA: 10/10/2018 – 
+--------------------------------------------------------------------------------------
+IF EXISTS( SELECT
+               NAME
+           FROM
+               SYSOBJECTS
+           WHERE
+             XTYPE = 'P'
+             AND NAME = 'USPFornecedorListar' )
+    DROP PROCEDURE USPFornecedorListar
+
+GO
+
+CREATE PROCEDURE USPFornecedorListar
+		   
+AS
+    SET NOCOUNT ON
+
+SELECT     
+	TB_FORNECEDOR.IDFORNECEDOR, 
+	TB_FORNECEDOR.NOMEFANTASIA, 
+	TB_FORNECEDOR.RAZAOSOCIAL, 
+	TB_FORNECEDOR.CNPJ, 
+	TB_FORNECEDOR.ENDERECO, 
+	TB_FORNECEDOR.NUMERO, 
+	TB_FORNECEDOR.COMPLEMENTO, 
+	TB_FORNECEDOR.BAIRRO, 
+	TB_FORNECEDOR.CEP, 
+	TB_FORNECEDOR.CIDADE, 
+	TB_FORNECEDOR.ESTADO, 
+	TB_FORNECEDOR.DATACADASTRO, 
+	TB_FORNECEDOR.IDSTATUS, 
+	TB_STATUS.[STATUS], 
+	TB_FORNECEDOR.IE, 
+	TB_FORNECEDOR.EMAIL, 
+	TB_FORNECEDOR.LATITUDE, 
+	TB_FORNECEDOR.LONGITUDE, 
+	TB_FORNECEDOR.CODINTERNO
+FROM TB_FORNECEDOR 
+	INNER JOIN
+TB_STATUS ON TB_FORNECEDOR.IDSTATUS = TB_STATUS.IDSTATUS
+ 

@@ -1,0 +1,183 @@
+﻿@model Entidades.Prancha
+@{
+    ViewBag.Title = "Editar de Prancha";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h2>@ViewBag.MensagemInicio</h2>
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensagemExito
+    @ViewBag.MensagemErro
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <fieldset>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdPrancha, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.IdPrancha, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CodigoInterno, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.CodigoInterno, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomePrancha, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.NomePrancha, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Volume, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Volume, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Espessura, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Espessura, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tamanho, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Tamanho, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Largura, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Largura, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Borda, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Borda, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Litragem, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Litragem, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Polegadas, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Polegadas, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdFornecedor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6 dropdown">
+                    @Html.DropDownListFor(model => model.IdFornecedor, ViewBag.ListarAllFornecedor as SelectList, "Selecione um Fornecedor", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdModalidade, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6 dropdown">
+                    @Html.DropDownListFor(model => model.IdModalidade, ViewBag.ListarAllPranchaModalidadeAtivo as SelectList, "Selecione um Modalidade", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdModelo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6 dropdown">
+                    @Html.DropDownListFor(model => model.IdModelo, ViewBag.ListarAllPranchaModeloAtivo as SelectList, "Selecione um Modelo", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdMarca, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6 dropdown">
+                    @Html.DropDownListFor(model => model.IdMarca, ViewBag.ListarAllPranchaMarcaAtivo as SelectList, "Selecione um Marca", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdTipoItem, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.IdTipoItem, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-actions col-md-offset-2">
+                <input class="btn btn-primary" type="submit" name="btnsalvar" value="Salvar" />
+                <br />
+                @Html.ActionLink("Voltar para Lista", "Index")
+
+            </div>
+
+        </fieldset>
+
+        <table id="example" class="table table-striped responsive-utilities jambo_table">
+            <thead>
+                <tr class="headings">
+                    <th>ID</th>
+                    <th>Imagem</th>
+                    <th>Capa</th>
+                    <th>Data Cadastro</th>
+                    <th>Situação</th>
+
+                    <th><a class="btn btn-info" href="~/Prancha/UploadFotos/@Model.IdPrancha">Subir Fotos</a></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (ViewBag.ImagensPrancha != null)
+                {
+                    foreach (var rs in ViewBag.ImagensPrancha)
+                    {
+                        <tr class="even pointer">
+                            <td>@rs.IdImagem</td>
+                            <td><img src="~/Content/ImagensPrancha/@rs.Imagem" width="50" height="50"/></td>
+                            <td>@rs.Capa</td>
+                            <td>@rs.DataCadastro</td>
+                            <td>@rs.Status.NomeStatus</td>
+                            <td>
+
+                                <a class="btn btn-danger" href="~/Prancha/delete/@rs.IdImagem">Excluir</a>
+                                @*<a class="btn btn-info" href="~/Prancha/Atualizar/@rs.IdPrancha">Editar</a>*@
+
+
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+}

@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Pesquisar";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Buscar Leitores no Sistema</div>
+
+
+@using (Html.BeginForm())
+{
+            <div class="form-horizontal">
+                <fieldset>
+                    <div class="row" style="padding-bottom:8px;">
+                        <div class="form-group col-md-3">
+                            @Html.Label("Nome", new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBox("txtBuscar", null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <input class="btn btn-primary btn-lg" type="submit" value="Buscar" />
+                    </div>
+                </fieldset>
+            </div>
+}
+   
+    <table id="example" class="table table-striped responsive-utilities jambo_table">
+        <thead>
+            <tr class="headings">
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Login</th>
+                <th>E-mail</th>
+                <th>Data Cadastro</th>
+                <th>Situação</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rs in Model)
+            {
+                <tr class="even pointer">
+                    <td>@rs.IdUsuario</td>
+                    <td>@rs.Nome</td>
+                    <td>@rs.Login</td>
+                    <td>@rs.Email</td>
+                    <td>@rs.DataCadastro</td>
+                    <td>@rs.Status.NomeStatus</td>
+                    <td>
+                        <a class="btn btn-info" href="~/Usuario/Atualizar/@rs.IdUsuario">Editar</a>
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+
+    </table>
+
+
+
+        </div>

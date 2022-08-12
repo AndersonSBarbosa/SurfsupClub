@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Vincular Fornecedores";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h2>@ViewBag.MensagemInicio</h2>
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensagemExito
+    @ViewBag.MensagemErro
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+
+        <table id="example" class="table table-striped responsive-utilities jambo_table">
+            <thead>
+                <tr class="headings">
+                    <th>ID</th>
+                    <th>CNPJ</th>
+                    <th>Nome Fantasia</th>
+                    <th>Razão Social</th>
+                    <th>Cidade/SP</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.ListarFornecedores != null)
+                {
+                    foreach (var rs in ViewBag.ListarFornecedores)
+                    {
+                        <tr class="even pointer">
+                            <td>@rs.IdFornecedor@rs.CodigoInterno</td>
+                            <td>@rs.CNPJ</td>
+                            <td>@rs.NomeFantasia</td>
+                            <td>@rs.RazaoSocial</td>
+                            <td>@rs.Cidade/@rs.Estado</td>
+                            <td>
+                                @if (rs.Fabricante == true)
+                                {<img src="~/images/iconSurf.png" width="32" height="32" alt="Fornecedor">}
+                                @if (rs.PontoEntregaRetirada == true)
+                                { <img src="~/images/iconlocal.png" width="32" height="32" alt="Ponto Retirada /Entrega">}
+                                <input type="checkbox" id="FornecedorLista" name='Fornecedor[]' onclick='AlimentaHiden();' value="@rs.IdFornecedor" class="tableflat">
+                            </td>
+                        </tr>
+                    }
+                }
+                @Html.Hidden("camposMarcados")
+            </tbody>
+
+        </table>
+
+        <div class="form-actions col-md-offset-2">
+            <input class="btn btn-primary" type="submit" name="btnsalvar" value="Vincular" />
+        </div>
+    </div>
+
+}
+
+<script type="text/javascript">
+
+       function AlimentaHiden() {
+
+            camposMarcados = new Array();
+            $("input[type=checkbox][name='Fornecedor[]']:checked").each(function () {
+                camposMarcados.push($(this).val());
+            });
+            $('#camposMarcados').val(camposMarcados);
+
+        }
+
+</script>

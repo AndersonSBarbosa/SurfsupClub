@@ -1,0 +1,74 @@
+﻿@model Entidades.Planos
+@{
+    ViewBag.Title = "Editar de Fornecedor";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h2>@ViewBag.MensagemInicio</h2>
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensagemExito
+    @ViewBag.MensagemErro
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <fieldset>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdPlano, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.IdPlano, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Plano, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Plano, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Valor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Dias, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Dias, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mensal, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.CheckBoxFor(model => model.Mensal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+
+                    @Html.RadioButtonFor(model => model.IdStatus, "0")@Html.Label("Inativo")
+                    @Html.RadioButtonFor(model => model.IdStatus, "1")@Html.Label("Ativo")
+
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-actions col-md-offset-2">
+            <input class="btn btn-primary" type="submit" name="btnsalvar" value="Salvar" />
+            <br />
+            @Html.ActionLink("Voltar para Lista", "Index")
+        </div>
+    </div>
+
+}

@@ -1,0 +1,44 @@
+﻿@model ADMSurfsupClub.Models.TB_USUARIO
+@{
+    ViewBag.Title = "Login";
+}
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    //cria a tag do formulário
+    @Html.AntiForgeryToken() // previne o ataque CSRF
+    @Html.ValidationSummary(true)
+
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <div>
+        <h1>Painel de Controle</h1>
+        <div>
+            @Html.LabelFor(a => a.LOGIN)
+            @Html.TextBoxFor(a => a.LOGIN)
+            @Html.ValidationMessageFor(a => a.LOGIN)
+        </div>
+        <div>
+            @Html.LabelFor(a => a.SENHA)
+            @Html.PasswordFor(a => a.SENHA)
+            @Html.ValidationMessageFor(a => a.SENHA)
+        </div>
+        <div>
+            <input type="submit" value="Login" class="btn btn-default submit" />
+            @*<a class="reset_pass" href="#">Esqueceu a Senha?</a>*@
+        </div>
+        <div class="clearfix"></div>
+        <div class="separator">
+
+            <div class="clearfix"></div>
+            <br />
+            <div>
+                <h1>Surf's Up Club</h1>
+                <p>Painel de Controle - 1.0 - @ViewBag.Title <a>By - Anderson Barbosa</a>. | OCTI</p>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,97 @@
+﻿@model Entidades.Pedido
+@model List<Entidades.PedidoItem>
+@{
+    ViewBag.Title = "Detalhe do Pedido";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h2>@ViewBag.MensagemInicio</h2>
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensagemExito
+    @ViewBag.MensagemErro
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <fieldset>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdPedido, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.IdPedido, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CodigoInterno, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.CodigoInterno, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cliente.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Cliente.Nome + model.Cliente.Sobrenome, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cliente.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Cliente.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+
+            <table id="example" class="table table-striped responsive-utilities jambo_table">
+                <thead>
+                    <tr class="headings">
+                        <th>ID</th>
+                        <th>Plano</th>
+                        <th>Valor</th>
+                        <th>Dias</th>
+                        <th>Situação</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var rs in Model)
+                    {
+                        <tr class="even pointer">
+                            <td>@rs.IdItem/@rs.IdPedido</td>
+                            <td>@rs.Planos.Plano</td>
+                            <td>@rs.Planos.Valor</td>
+                            <td>@rs.Planos.Dias</td>
+                            <td>@rs.Status.NomeStatus</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status.NomeStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Status.NomeStatus, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+
+        </fieldset>
+
+        <div class="form-actions col-md-offset-2">
+            <input class="btn btn-primary" type="submit" name="btnsalvar" value="Salvar" />
+            <br />
+            @Html.ActionLink("Voltar para Lista", "Index")
+        </div>
+    </div>
+
+}

@@ -1,0 +1,930 @@
+﻿@model List<Entidades.Prancha>
+@{
+    ViewBag.Title = "Nosso Quiver";
+}
+<br />
+<br />
+
+<br />
+@using (Html.BeginForm())
+{
+<section id="team" class="py-3">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <h2>Nosso  <strong>Planos</strong></h2>
+            </div>
+        </div>
+
+        <div class="row mb-5 pb-2">
+
+            @foreach (var rs in Model)
+            {
+
+
+                @*<div class="owl-stage-outer">*@
+                    @*<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 1.5s ease 0s; width: 4386px;">*@
+                        <div class="owl-item active" style="width:250px;margin-right: 20px;margin-bottom:20px;">
+                            <div class="portfolio-item">
+                                <a href="~/NossoQuiver/Prancha/@rs.IdPrancha" >
+                                    <span class="thumb-info thumb-info-lighten">
+                                        <span class="thumb-info-wrapper">
+                                            @if (rs.PranchaImagem.QuantidadeImagem == 0)
+                                            {
+                                                <img src="img/projects/project.jpg" class="img-fluid" alt="">
+                                            }
+                                            else
+                                            {
+                                                <img src="PainelControle/Content/ImagensPrancha/@rs.PranchaImagem.Imagem" class="img-fluid" alt="">
+                                            }
+                                            <span class="thumb-info-title">
+                                                <span class="thumb-info-inner">@rs.NomePrancha</span>
+                                                <span class="thumb-info-type">@rs.CodigoInterno</span>
+                                            </span>
+                                            <span class="thumb-info-action">
+                                                <span class="thumb-info-action-icon"><i class="fas fa-plus-square"></i></span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </a>
+
+                            </div>
+                        </div>
+                    @*</div>*@
+                @*</div>*@
+
+
+            }
+        </div>
+    </div>
+
+</section>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="col">
+
+    <div class="owl-carousel owl-theme owl-loaded owl-drag owl-carousel-init" data-plugin-options="{'items': 4, 'margin': 20, 'loop': false}">
+
+        <div class="owl-stage-outer">
+            <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0.25s ease 0s; width: 2260px;">
+                <div class="owl-item active" style="width: 262.5px; margin-right: 20px;">
+                    <div class="portfolio-item">
+                        <a href="#popupProject" data-portfolio-on-modal="">
+                            <span class="thumb-info thumb-info-lighten">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project.jpg" class="img-fluid" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Prancha Longa</span>
+                                        <span class="thumb-info-type">Brand</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fas fa-plus-square"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                        <!-- Popup Project - Start -->
+                        <div id="popupProject" class="popup-inline-content">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="portfolio-title">
+                                        <div class="row">
+                                            <div class="portfolio-nav-all col-lg-1">
+                                                <a href="#" data-portfolio-close=""><i class="fas fa-th"></i></a>
+                                            </div>
+                                            <div class="col-lg-10 text-center">
+                                                <h2 class="mb-0">Prancha Longa</h2>
+                                            </div>
+                                            <div class="portfolio-nav col-lg-1">
+                                                <a href="#" data-portfolio-prev="" class="portfolio-nav-prev"><i class="fas fa-chevron-left"></i></a>
+                                                <a href="#" data-portfolio-next="" class="portfolio-nav-next"><i class="fas fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="tall">
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-lg-4">
+
+                                    <span class="img-thumbnail d-block">
+                                        <img alt="" class="img-fluid" src="img/projects/project.jpg">
+                                    </span>
+
+                                </div>
+
+                                <div class="col-lg-8">
+
+                                    <div class="portfolio-info">
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" data-tooltip="" data-original-title="Like"><i class="fas fa-heart"></i>14</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-calendar-alt"></i> 01 January 2017
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-tags"></i> <a href="#">Brand</a>, <a href="#">Design</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-2">Project Description</h5>
+                                    <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+
+                                    <a href="#" class="btn btn-primary btn-icon"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+
+                                    <ul class="portfolio-details">
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Skills</h5>
+
+                                            <ul class="list list-inline list-icons">
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Design</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> HTML/CSS</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Javascript</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Backend</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Client</h5>
+                                            <p>Okler Themes</p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Popup Project - End -->
+                    </div>
+                </div><div class="owl-item active" style="width: 262.5px; margin-right: 20px;">
+                    <div class="portfolio-item">
+                        <a href="#popupProject2" data-portfolio-on-modal="">
+                            <span class="thumb-info thumb-info-lighten">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project-1.jpg" class="img-fluid" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Prancha Curta</span>
+                                        <span class="thumb-info-type">Media</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fas fa-plus-square"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                        <!-- Popup Project 2 - Start -->
+                        <div id="popupProject2" class="popup-inline-content">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="portfolio-title">
+                                        <div class="row">
+                                            <div class="portfolio-nav-all col-lg-1">
+                                                <a href="#" data-portfolio-close=""><i class="fas fa-th"></i></a>
+                                            </div>
+                                            <div class="col-lg-10 text-center">
+                                                <h2 class="mb-0">Prancha Curta</h2>
+                                            </div>
+                                            <div class="portfolio-nav col-lg-1">
+                                                <a href="#" data-portfolio-prev="" class="portfolio-nav-prev"><i class="fas fa-chevron-left"></i></a>
+                                                <a href="#" data-portfolio-next="" class="portfolio-nav-next"><i class="fas fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="tall">
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-lg-4">
+
+                                    <div class="owl-carousel owl-theme owl-loaded owl-drag owl-carousel-init" data-plugin-options="{'items': 1, 'margin': 10, 'animateOut': 'fadeOut', 'autoplay': true, 'autoplayTimeout': 3000}">
+
+
+                                        <div class="owl-stage-outer">
+                                            <div class="owl-stage" style="transform: translate3d(-30px, 0px, 0px); transition: all 0s ease 0s; width: 60px;">
+                                                <div class="owl-item animated owl-animated-out fadeOut cloned" style="width: 0px; margin-right: 10px; left: 10px;">
+                                                    <div>
+                                                        <span class="img-thumbnail d-block">
+                                                            <img alt="" class="img-fluid" src="img/projects/project-1.jpg">
+                                                        </span>
+                                                    </div>
+                                                </div><div class="owl-item cloned" style="width: 0px; margin-right: 10px;">
+                                                    <div>
+                                                        <span class="img-thumbnail d-block">
+                                                            <img alt="" class="img-fluid" src="img/projects/project-1-2.jpg">
+                                                        </span>
+                                                    </div>
+                                                </div><div class="owl-item animated owl-animated-out fadeOut" style="width: 0px; margin-right: 10px; left: 10px;">
+                                                    <div>
+                                                        <span class="img-thumbnail d-block">
+                                                            <img alt="" class="img-fluid" src="img/projects/project-1.jpg">
+                                                        </span>
+                                                    </div>
+                                                </div><div class="owl-item active" style="width: 0px; margin-right: 10px;">
+                                                    <div>
+                                                        <span class="img-thumbnail d-block">
+                                                            <img alt="" class="img-fluid" src="img/projects/project-1-2.jpg">
+                                                        </span>
+                                                    </div>
+                                                </div><div class="owl-item animated owl-animated-out fadeOut cloned" style="width: 0px; margin-right: 10px; left: 10px;">
+                                                    <div>
+                                                        <span class="img-thumbnail d-block">
+                                                            <img alt="" class="img-fluid" src="img/projects/project-1.jpg">
+                                                        </span>
+                                                    </div>
+                                                </div><div class="owl-item cloned" style="width: 0px; margin-right: 10px;">
+                                                    <div>
+                                                        <span class="img-thumbnail d-block">
+                                                            <img alt="" class="img-fluid" src="img/projects/project-1-2.jpg">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="owl-nav disabled"><button type="button" role="Prancha Longa" class="owl-prev"></button><button type="button" role="Prancha Longa" class="owl-next"></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button></div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-8">
+
+                                    <div class="portfolio-info">
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" data-tooltip="" data-original-title="Like"><i class="fas fa-heart"></i>14</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-calendar-alt"></i> 01 January 2017
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-tags"></i> <a href="#">Brand</a>, <a href="#">Design</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-2">Project Description</h5>
+                                    <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+
+                                    <a href="#" class="btn btn-primary btn-icon"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+
+                                    <ul class="portfolio-details">
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Skills</h5>
+
+                                            <ul class="list list-inline list-icons">
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Design</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> HTML/CSS</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Javascript</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Backend</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Client</h5>
+                                            <p>Okler Themes</p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Popup Project 2 - End -->
+                    </div>
+                </div><div class="owl-item active" style="width: 262.5px; margin-right: 20px;">
+                    <div class="portfolio-item">
+                        <a href="#popupProject3" data-portfolio-on-modal="">
+                            <span class="thumb-info thumb-info-lighten">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project-2.jpg" class="img-fluid" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Prancha</span>
+                                        <span class="thumb-info-type">Logo</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fas fa-plus-square"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                        <!-- Popup Project 3 - Start -->
+                        <div id="popupProject3" class="popup-inline-content mfp-hide">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="portfolio-title">
+                                        <div class="row">
+                                            <div class="portfolio-nav-all col-lg-1">
+                                                <a href="#" data-portfolio-close=""><i class="fas fa-th"></i></a>
+                                            </div>
+                                            <div class="col-lg-10 text-center">
+                                                <h2 class="mb-0">Prancha</h2>
+                                            </div>
+                                            <div class="portfolio-nav col-lg-1">
+                                                <a href="#" data-portfolio-prev="" class="portfolio-nav-prev"><i class="fas fa-chevron-left"></i></a>
+                                                <a href="#" data-portfolio-next="" class="portfolio-nav-next"><i class="fas fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="tall">
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-lg-4">
+
+                                    <span class="img-thumbnail d-block">
+                                        <img alt="" class="img-fluid" src="img/projects/project-2.jpg">
+                                    </span>
+
+                                </div>
+
+                                <div class="col-lg-8">
+
+                                    <div class="portfolio-info">
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" data-tooltip="" data-original-title="Like"><i class="fas fa-heart"></i>14</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-calendar-alt"></i> 01 January 2017
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-tags"></i> <a href="#">Brand</a>, <a href="#">Design</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-2">Project Description</h5>
+                                    <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+
+                                    <a href="#" class="btn btn-primary btn-icon"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+
+                                    <ul class="portfolio-details">
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Skills</h5>
+
+                                            <ul class="list list-inline list-icons">
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Design</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> HTML/CSS</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Javascript</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Backend</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Client</h5>
+                                            <p>Okler Themes</p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Popup Project 3 - End -->
+                    </div>
+                </div><div class="owl-item active" style="width: 262.5px; margin-right: 20px;">
+                    <div class="portfolio-item">
+                        <a href="#popupProject4" data-portfolio-on-modal="">
+                            <span class="thumb-info thumb-info-lighten">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project-3.jpg" class="img-fluid" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Prancha</span>
+                                        <span class="thumb-info-type">Brand</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fas fa-plus-square"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                        <!-- Popup Project 4 - Start -->
+                        <div id="popupProject4" class="popup-inline-content mfp-hide">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="portfolio-title">
+                                        <div class="row">
+                                            <div class="portfolio-nav-all col-lg-1">
+                                                <a href="#" data-portfolio-close=""><i class="fas fa-th"></i></a>
+                                            </div>
+                                            <div class="col-lg-10 text-center">
+                                                <h2 class="mb-0">Prancha</h2>
+                                            </div>
+                                            <div class="portfolio-nav col-lg-1">
+                                                <a href="#" data-portfolio-prev="" class="portfolio-nav-prev"><i class="fas fa-chevron-left"></i></a>
+                                                <a href="#" data-portfolio-next="" class="portfolio-nav-next"><i class="fas fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="tall">
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-lg-4">
+
+                                    <span class="img-thumbnail d-block">
+                                        <img alt="" class="img-fluid" src="img/projects/project-3.jpg">
+                                    </span>
+
+                                </div>
+
+                                <div class="col-lg-8">
+
+                                    <div class="portfolio-info">
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" data-tooltip="" data-original-title="Like"><i class="fas fa-heart"></i>14</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-calendar-alt"></i> 01 January 2017
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-tags"></i> <a href="#">Brand</a>, <a href="#">Design</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-2">Project Description</h5>
+                                    <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+
+                                    <a href="#" class="btn btn-primary btn-icon"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+
+                                    <ul class="portfolio-details">
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Skills</h5>
+
+                                            <ul class="list list-inline list-icons">
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Design</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> HTML/CSS</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Javascript</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Backend</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Client</h5>
+                                            <p>Okler Themes</p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Popup Project 4 - End -->
+                    </div>
+                </div><div class="owl-item" style="width: 262.5px; margin-right: 20px;">
+                    <div class="portfolio-item">
+                        <a href="#popupProject5" data-portfolio-on-modal="">
+                            <span class="thumb-info thumb-info-lighten">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project-4.jpg" class="img-fluid" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Prancha</span>
+                                        <span class="thumb-info-type">Logo</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fas fa-plus-square"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                        <!-- Popup Project 5 - Start -->
+                        <div id="popupProject5" class="popup-inline-content mfp-hide">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="portfolio-title">
+                                        <div class="row">
+                                            <div class="portfolio-nav-all col-lg-1">
+                                                <a href="#" data-portfolio-close=""><i class="fas fa-th"></i></a>
+                                            </div>
+                                            <div class="col-lg-10 text-center">
+                                                <h2 class="mb-0">Prancha</h2>
+                                            </div>
+                                            <div class="portfolio-nav col-lg-1">
+                                                <a href="#" data-portfolio-prev="" class="portfolio-nav-prev"><i class="fas fa-chevron-left"></i></a>
+                                                <a href="#" data-portfolio-next="" class="portfolio-nav-next"><i class="fas fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="tall">
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-lg-4">
+
+                                    <span class="img-thumbnail d-block">
+                                        <img alt="" class="img-fluid" src="img/projects/project-4.jpg">
+                                    </span>
+
+                                </div>
+
+                                <div class="col-lg-8">
+
+                                    <div class="portfolio-info">
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" data-tooltip="" data-original-title="Like"><i class="fas fa-heart"></i>14</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-calendar-alt"></i> 01 January 2017
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-tags"></i> <a href="#">Brand</a>, <a href="#">Design</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-2">Project Description</h5>
+                                    <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+
+                                    <a href="#" class="btn btn-primary btn-icon"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+
+                                    <ul class="portfolio-details">
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Skills</h5>
+
+                                            <ul class="list list-inline list-icons">
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Design</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> HTML/CSS</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Javascript</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Backend</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Client</h5>
+                                            <p>Okler Themes</p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Popup Project 5 - End -->
+                    </div>
+                </div><div class="owl-item" style="width: 262.5px; margin-right: 20px;">
+                    <div class="portfolio-item">
+                        <a href="#popupProject6" data-portfolio-on-modal="">
+                            <span class="thumb-info thumb-info-lighten">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project-5.jpg" class="img-fluid" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Prancha</span>
+                                        <span class="thumb-info-type">Brand</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fas fa-plus-square"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                        <!-- Popup Project 6 - Start -->
+                        <div id="popupProject6" class="popup-inline-content mfp-hide">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="portfolio-title">
+                                        <div class="row">
+                                            <div class="portfolio-nav-all col-lg-1">
+                                                <a href="#" data-portfolio-close=""><i class="fas fa-th"></i></a>
+                                            </div>
+                                            <div class="col-lg-10 text-center">
+                                                <h2 class="mb-0">Prancha</h2>
+                                            </div>
+                                            <div class="portfolio-nav col-lg-1">
+                                                <a href="#" data-portfolio-prev="" class="portfolio-nav-prev"><i class="fas fa-chevron-left"></i></a>
+                                                <a href="#" data-portfolio-next="" class="portfolio-nav-next"><i class="fas fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="tall">
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-lg-4">
+
+                                    <span class="img-thumbnail d-block">
+                                        <img alt="" class="img-fluid" src="img/projects/project-5.jpg">
+                                    </span>
+
+                                </div>
+
+                                <div class="col-lg-8">
+
+                                    <div class="portfolio-info">
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" data-tooltip="" data-original-title="Like"><i class="fas fa-heart"></i>14</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-calendar-alt"></i> 01 January 2017
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-tags"></i> <a href="#">Brand</a>, <a href="#">Design</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-2">Project Description</h5>
+                                    <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+
+                                    <a href="#" class="btn btn-primary btn-icon"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+
+                                    <ul class="portfolio-details">
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Skills</h5>
+
+                                            <ul class="list list-inline list-icons">
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Design</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> HTML/CSS</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Javascript</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Backend</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Client</h5>
+                                            <p>Okler Themes</p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Popup Project 6 - End -->
+                    </div>
+                </div><div class="owl-item" style="width: 262.5px; margin-right: 20px;">
+                    <div class="portfolio-item">
+                        <a href="#popupProject7" data-portfolio-on-modal="">
+                            <span class="thumb-info thumb-info-lighten">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project-6.jpg" class="img-fluid" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Prancha</span>
+                                        <span class="thumb-info-type">Website</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fas fa-plus-square"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                        <!-- Popup Project 7 - Start -->
+                        <div id="popupProject7" class="popup-inline-content mfp-hide">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="portfolio-title">
+                                        <div class="row">
+                                            <div class="portfolio-nav-all col-lg-1">
+                                                <a href="#" data-portfolio-close=""><i class="fas fa-th"></i></a>
+                                            </div>
+                                            <div class="col-lg-10 text-center">
+                                                <h2 class="mb-0">Prancha</h2>
+                                            </div>
+                                            <div class="portfolio-nav col-lg-1">
+                                                <a href="#" data-portfolio-prev="" class="portfolio-nav-prev"><i class="fas fa-chevron-left"></i></a>
+                                                <a href="#" data-portfolio-next="" class="portfolio-nav-next"><i class="fas fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="tall">
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-lg-4">
+
+                                    <span class="img-thumbnail d-block">
+                                        <img alt="" class="img-fluid" src="img/projects/project-6.jpg">
+                                    </span>
+
+                                </div>
+
+                                <div class="col-lg-8">
+
+                                    <div class="portfolio-info">
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" data-tooltip="" data-original-title="Like"><i class="fas fa-heart"></i>14</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-calendar-alt"></i> 01 January 2017
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-tags"></i> <a href="#">Brand</a>, <a href="#">Design</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-2">Project Description</h5>
+                                    <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+
+                                    <a href="#" class="btn btn-primary btn-icon"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+
+                                    <ul class="portfolio-details">
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Skills</h5>
+
+                                            <ul class="list list-inline list-icons">
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Design</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> HTML/CSS</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Javascript</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Backend</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Client</h5>
+                                            <p>Okler Themes</p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Popup Project 7 - End -->
+                    </div>
+                </div><div class="owl-item" style="width: 262.5px; margin-right: 20px;">
+                    <div class="portfolio-item">
+                        <a href="#popupProject8" data-portfolio-on-modal="">
+                            <span class="thumb-info thumb-info-lighten">
+                                <span class="thumb-info-wrapper">
+                                    <img src="img/projects/project-7.jpg" class="img-fluid" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">Prancha</span>
+                                        <span class="thumb-info-type">Media</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fas fa-plus-square"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                        <!-- Popup Project 8 - Start -->
+                        <div id="popupProject8" class="popup-inline-content">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="portfolio-title">
+                                        <div class="row">
+                                            <div class="portfolio-nav-all col-lg-1">
+                                                <a href="#" data-portfolio-close=""><i class="fas fa-th"></i></a>
+                                            </div>
+                                            <div class="col-lg-10 text-center">
+                                                <h2 class="mb-0">Prancha</h2>
+                                            </div>
+                                            <div class="portfolio-nav col-lg-1">
+                                                <a href="#" data-portfolio-prev="" class="portfolio-nav-prev"><i class="fas fa-chevron-left"></i></a>
+                                                <a href="#" data-portfolio-next="" class="portfolio-nav-next"><i class="fas fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="tall">
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-lg-4">
+
+                                    <span class="img-thumbnail d-block">
+                                        <img alt="" class="img-fluid" src="img/projects/project-7.jpg">
+                                    </span>
+
+                                </div>
+
+                                <div class="col-lg-8">
+
+                                    <div class="portfolio-info">
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" data-tooltip="" data-original-title="Like"><i class="fas fa-heart"></i>14</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-calendar-alt"></i> 01 January 2017
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-tags"></i> <a href="#">Brand</a>, <a href="#">Design</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-2">Project Description</h5>
+                                    <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+
+                                    <a href="#" class="btn btn-primary btn-icon"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+
+                                    <ul class="portfolio-details">
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Skills</h5>
+
+                                            <ul class="list list-inline list-icons">
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Design</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> HTML/CSS</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Javascript</li>
+                                                <li class="list-inline-item"><i class="fas fa-check-circle"></i> Backend</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h5 class="mt-2 mb-1">Client</h5>
+                                            <p>Okler Themes</p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Popup Project 8 - End -->
+                    </div>
+                </div>
+            </div>
+        </div><div class="owl-nav disabled"><button type="button" role="Prancha Longa" class="owl-prev"></button><button type="button" role="Prancha Longa" class="owl-next"></button></div>
+    </div>
+
+    <hr class="tall">
+
+</div>*@

@@ -1,0 +1,109 @@
+﻿@model Entidades.Usuario
+@{
+    ViewBag.Title = "Editar de Usuario";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h2>@ViewBag.MensagemInicio</h2>
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensagemExito
+    @ViewBag.MensagemErro
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <fieldset>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.IdUsuario, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+             
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdNivel, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.IdNivel, ViewBag.ListarNivel as SelectList, "Selecione um Nivel", htmlAttributes: new { @class = "form-control" })
+
+                </div>
+            </div>
+
+        </fieldset>
+        <div class="form-actions col-md-offset-2">
+            <input class="btn btn-primary" type="submit" name="btnsalvar" value="Salvar" />
+            <br />
+ 
+            <br />
+            <a class="btn btn-info" href="~/Usuario/VincularFranquias/@Model.IdUsuario">Vincular Fornecedor</a>
+            
+        </div>
+    </div>
+}
+
+<table id="example" class="table table-striped responsive-utilities jambo_table">
+    <thead>
+        <tr class="headings">
+            <th>ID</th>
+            <th>CNPJ</th>
+            <th>Nome Fantasia</th>
+            <th>Razão Social</th>
+            <th>Cidade/SP</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewBag.FornecedoresVinculados != null)
+        {
+
+            foreach (var rs in ViewBag.FornecedoresVinculados)
+            {
+
+                    <tr class="even pointer">
+                        <td>@rs.IdFornecedor@rs.CodigoInterno</td>
+                        <td>@rs.CNPJ</td>
+                        <td>@rs.NomeFantasia</td>
+                        <td>@rs.RazaoSocial</td>
+                        <td>@rs.Cidade/@rs.Estado</td>
+                        
+                        <td>
+                            @if (rs.Fabricante == true)
+                            {<img src="~/images/iconSurf.png" width="32" height="32" alt="Fornecedor">}
+                            @if (rs.PontoEntregaRetirada == true)
+                            { <img src="~/images/iconlocal.png" width="32" height="32" alt="Ponto Retirada /Entrega">}
+                        </td>
+                        <td>
+                            <a class="btn btn-info" href="~/Fornecedor/Atualizar/@rs.IdFornecedor">Editar</a>
+                        </td>
+                    </tr>
+
+            }
+        }
+    </tbody>
+
+</table>

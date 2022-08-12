@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surf's Up Club - Locação de Pranchas - @ViewBag.Title </title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/surfs-up-club-azul.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/surfs-up-club-azul.png">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="~/vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="~/vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/vendor/magnific-popup/magnific-popup.min.css">
+
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/css/theme.css">
+    <link rel="stylesheet" href="~/css/theme-elements.css">
+    <link rel="stylesheet" href="~/css/theme-blog.css">
+    <link rel="stylesheet" href="~/css/theme-shop.css">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="~/vendor/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/vendor/rs-plugin/css/layers.css">
+    <link rel="stylesheet" href="~/vendor/rs-plugin/css/navigation.css">
+    <link rel="stylesheet" href="~/vendor/circle-flip-slideshow/css/component.css">
+
+
+    <!-- Demo CSS -->
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="~/css/skins/default.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="~/css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="~/vendor/modernizr/modernizr.min.js"></script>
+
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+
+</head>
+
+<body>
+    <div class="body">
+
+        <header id="header" class="header-narrow header-semi-transparent header-transparent-sticky-deactive header-transparent-bottom-border" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 1, 'stickySetTop': '1'}" style="min-height: 0px;">
+            <div class="header-body" style="top: 0px;">
+                <div class="header-container container">
+                    <div class="header-row">
+                        <div class="header-column">
+                            <div class="header-row">
+                                <div class="header-logo"> <a href="~/Home"> <img alt="Surfs Up Club" width="150" src="~/img/surfs-up-club-logo-horizontal.png"> </a> </div>
+                            </div>
+                        </div>
+                        <div class="header-column justify-content-end">
+                            <div class="header-row">
+                                <div class="header-nav header-nav-stripe">
+                                    <div class="header-nav-main header-nav-main-no-arrows header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                                        <nav class="collapse">
+                                            <ul class="nav nav-pills" id="mainNav">
+                                                <li class="dropdown"> <a data-hash="" class="dropdown-item dropdown-toggle active" href="~/Home">INÍCIO<i class="fas fa-caret-down"></i></a></li>
+                                                <li class="dropdown"> <a data-hash="" class="dropdown-item dropdown-toggle" href="#">+ SURF'S UP<i class="fas fa-caret-down"></i></a>
+                                                     <ul class="dropdown-menu">
+                                                         <li><a class="dropdown-item" href="~/SurfsUp">QUEM SOMOS</a></li>
+                                                         <li><a class="dropdown-item" href="~/ComoFunciona">COMO FUNCIONA</a></li>
+                                                         <li><a class="dropdown-item" href="~/PorQueSerSocio">POR QUE SER SÓCIO</a></li>
+                                                      </ul>
+                                                </li>
+                                                <li> <a class="dropdown-item" data-hash="" data-hash-offset="70" href="~/NossoQuiver">NOSSO QUIVER</a> </li>
+                                                <li> <a class="dropdown-item" data-hash="" data-hash-offset="70" href="~/Planos">PLANOS</a> </li>
+                                                <li> <a class="dropdown-item" data-hash="" data-hash-offset="70" href="http://surfsupclub.web7614.kinghost.net/painelcontrole/Home/">ÁREA DO SÓCIO</a> </li>
+                                                <li> <a class="dropdown-item" data-hash="" data-hash-offset="70" href="~/FaleConosco">FALE CONOSCO</a> </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <ul class="header-social-icons social-icons d-none d-sm-block">
+                                        <li class="social-icons-facebook"><a href="https://www.facebook.com/surfsupclub" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="social-icons-twitter"><a href="http://instagram.com/surfs_up_club" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                        @*<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>*@
+                                    </ul>
+                                    <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav"> <i class="fas fa-bars"></i> </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- SLIDE 1 -->
+        <div role="main" class="main" id="home">
+            @RenderBody()
+        </div>
+
+        <footer class="short" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h4 class="heading-primary">Sobre Surf'sUpClub</h4>
+                        <p>Perguntas Frequentes: <a href="~/PerguntasFrequentes" class="btn-flat btn-xs">Veja Mais <i class="fas fa-arrow-right"></i></a></p>
+                        <hr class="light">
+                    </div>
+                    <div class="col-lg-3 col-lg-offset-1">
+                        <h5 class="mb-2">Fale Conosco</h5>
+                        <span class="phone">(11) 99981-4191</span>
+                        <p class="mb-0">Whatsapp (11) 93938-7311</p>
+
+                        <ul class="list list-icons list-icons-sm">
+                            <li><i class="far fa-envelope"></i> <a href="mailto:contatosurfsup@gmail.com">contatosurfsup@gmail.com</a></li>
+                        </ul>
+                        <ul class="social-icons">
+                            <li class="social-icons-facebook"><a href="https://www.facebook.com/surfsupclub" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="social-icons-twitter"><a href="http://instagram.com/surfs_up_club" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                            @*<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-1"> <a href="index.html" class="logo"> <img alt="Porto Website Template" class="img-fluid" src="~/img/surfs-up-club-logo-horizontal.png"> </a> </div>
+                        <div class="col-lg-11">
+                            <p>© Copyright 2018. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+    <!-- Vendor -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/jquery.appear/jquery.appear.min.js"></script>
+    <script src="~/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/vendor/jquery-cookie/jquery-cookie.min.js"></script>
+    <script src="~/vendor/popper/umd/popper.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/vendor/common/common.min.js"></script>
+    <script src="~/vendor/jquery.validation/jquery.validation.min.js"></script>
+    <script src="~/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <script src="~/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+    <script src="~/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+    <script src="~/vendor/isotope/jquery.isotope.min.js"></script>
+    <script src="~/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="~/vendor/vide/vide.min.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="~/js/theme.js"></script>
+
+    <!-- Current Page Vendor and Views -->
+    <script src="~/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/js/views/view.contact.js"></script>
+    <script src="~/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
+
+
+    <!-- Theme Custom -->
+    <script src="~/js/custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="~/js/theme.init.js"></script>
+
+    <!-- Examples -->
+    <script src="~/js/examples/examples.portfolio.js"></script>
+
+    <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
+            <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-12345678-1', 'auto');
+                ga('send', 'pageview');
+            </script>
+             -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script>
+
+			/*
+			Map Settings
+
+				Find the Latitude and Longitude of your address:
+					- http://universimmedia.pagesperso-orange.fr/geo/loc.htm
+					- http://www.findlatitudeandlongitude.com/find-address-from-latitude-and-longitude/
+
+			*/
+
+			// Map Markers
+			var mapMarkers = [{
+				address: "217 Summit Boulevard, Birmingham, AL 35243",
+				html: "<strong>Alabama Office</strong><br>217 Summit Boulevard, Birmingham, AL 35243<br><br><a href='#' onclick='mapCenterAt({latitude: 33.44792, longitude: -86.72963, zoom: 16}, event)'>[+] zoom here</a>",
+				icon: {
+					image: "img/pin.png",
+					iconsize: [26, 46],
+					iconanchor: [12, 46]
+				}
+			},{
+				address: "645 E. Shaw Avenue, Fresno, CA 93710",
+				html: "<strong>California Office</strong><br>645 E. Shaw Avenue, Fresno, CA 93710<br><br><a href='#' onclick='mapCenterAt({latitude: 36.80948, longitude: -119.77598, zoom: 16}, event)'>[+] zoom here</a>",
+				icon: {
+					image: "img/pin.png",
+					iconsize: [26, 46],
+					iconanchor: [12, 46]
+				}
+			},{
+				address: "New York, NY 10017",
+				html: "<strong>New York Office</strong><br>New York, NY 10017<br><br><a href='#' onclick='mapCenterAt({latitude: 40.75198, longitude: -73.96978, zoom: 16}, event)'>[+] zoom here</a>",
+				icon: {
+					image: "img/pin.png",
+					iconsize: [26, 46],
+					iconanchor: [12, 46]
+				}
+			}];
+
+			// Map Initial Location
+			var initLatitude = 37.09024;
+			var initLongitude = -95.71289;
+
+			// Map Extended Settings
+			var mapSettings = {
+				controls: {
+					draggable: (($.browser.mobile) ? false : true),
+					panControl: true,
+					zoomControl: true,
+					mapTypeControl: true,
+					scaleControl: true,
+					streetViewControl: true,
+					overviewMapControl: true
+				},
+				scrollwheel: false,
+				markers: mapMarkers,
+				latitude: initLatitude,
+				longitude: initLongitude,
+				zoom: 5
+			};
+
+			var map = $('#googlemaps').gMap(mapSettings),
+				mapRef = $('#googlemaps').data('gMap.reference');
+
+			// Map text-center At
+			var mapCenterAt = function(options, e) {
+				e.preventDefault();
+				$('#googlemaps').gMap("centerAt", options);
+			}
+
+			// Styles from https://snazzymaps.com/
+			var styles = [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}];
+
+			var styledMap = new google.maps.StyledMapType(styles, {
+				name: 'Styled Map'
+			});
+
+			mapRef.mapTypes.set('map_style', styledMap);
+			mapRef.setMapTypeId('map_style');
+
+    </script>
+
+</body>
+</html>

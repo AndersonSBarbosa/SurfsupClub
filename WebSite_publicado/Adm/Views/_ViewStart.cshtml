@@ -1,0 +1,16 @@
+﻿@{
+
+    //var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    //string layout = "";
+
+    if (Session["usuarioLogadoID"] != null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    }
+    //Layout = layout;
+
+}

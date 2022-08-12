@@ -1,0 +1,58 @@
+﻿@model List<Entidades.Prancha>
+@{
+    ViewBag.Title = "Prancha";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h2>@ViewBag.MensagemInicio</h2>
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensagemExito
+    @ViewBag.MensagemErro
+</div>
+
+@using (Html.BeginForm())
+{
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+            <table id="example" class="table table-striped responsive-utilities jambo_table">
+                <thead>
+                    <tr class="headings">
+                        <th>ID</th>
+                        <th>Prancha</th>
+                        <th>Modelo</th>
+                        <th>Marca</th>
+                        <th>Medidas</th>
+                        <th>Data Cadastro</th>
+                        <th>Situação</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rs in Model)
+                    {
+                        <tr class="even pointer">
+                            <td>@rs.IdPrancha@rs.CodigoInterno</td>
+                            <td>@rs.NomePrancha</td>
+                            <td>@rs.PranchaModelo.Modelo</td>
+                            <td>@rs.PranchaMarca.Marca</td>
+                            <td>@rs.Tamanho/@rs.Largura/@rs.Borda/@rs.Litragem/@rs.Polegadas/@rs.Espessura/@rs.Volume</td>
+                            <td>@rs.DataCadastro</td>
+                            <td>@rs.Status.NomeStatus</td>
+                            <td>
+                                <a class="btn btn-info" href="~/Prancha/Atualizar/@rs.IdPrancha">Editar</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+    
+        </div>
+    </div>
+
+}

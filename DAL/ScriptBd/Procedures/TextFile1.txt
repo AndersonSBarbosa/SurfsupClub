@@ -1,0 +1,69 @@
+Base: SurfsUpClub
+Login: SurfsUpClub
+Senha: @Aspcce001@
+
+Host: .\MSSQLSERVER2014
+Nome da base de dados: SurfsUpClub
+Nome de usuário: SurfsUpClub
+
+
+
+rs.NomeFantasia = dt.Rows[i]["IDLOCACAO"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["CODINTERNO"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["IDPRANCHA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["PRANCHA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["DESCRICAO"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["VOLUME"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["POLEGADAS"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["ESPESSURA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["IDFORNECEDOR"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["NOMEFANTASIA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["RAZAOSOCIAL"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["CNPJ"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["CODINTERNOPRANCHA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["IDCLIENTE"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["NOME"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["IDFACEBOOK"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["SOBRENOME"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["EMAIL"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["CPF"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["CODINTERNOCLIENTE"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["IDPLANO"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["PLANO"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["VALOR"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["DIAS"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["MENSAL"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["DATARETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["DATAENTREGA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["DATADEVOLUCAO"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["DATACADASTRO"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["IDSTATUS"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["[STATUS]"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["IDPONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["NOMEFANTASIA_PONTORETIRADA"].ToString();
+rs.NomeFantasia = dt.Rows[i]["RAZAOSOCIAL_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["CNPJ_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["ENDERECO_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["NUMERO_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["COMPLEMENTO_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["BAIRRO_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["CEP_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["CIDADE_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["ESTADO_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["LATITUDE_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["LONGITUDE_PONTORETIRADA"].ToString(); 
+rs.NomeFantasia = dt.Rows[i]["CODINTERNO_PONTORETIRADA
+
+
+
+
+
+execute USPUsuarioCadastroEdicao 0 , 
+
+
+
+
+execute USPUsuarioCadastroEdicao 0 ,'Gustavo Awbadi','gustavoawabdi','ssabgh12345','gustavoawabdi@gmail.com',2,1,0
+execute USPUsuarioCadastroEdicao 0 ,'Lucas','lucassinisgalli1','ssabgh12345','lucassinisgalli1@gmail.com',2,1,0
+execute USPUsuarioCadastroEdicao 0 ,'Daniel Cappelletti','danielcappelletti','ssabgh12345','danielcappelletti@gmail.com',2,1,0
+execute USPUsuarioCadastroEdicao 0 ,'Lucas Guedes','lucascdguedes','ssabgh12345','lucascdguedes@gmail.com',2,1,0

@@ -1,0 +1,569 @@
+﻿@model Entidades.Cliente
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <section class="card card-admin">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                        </div>
+
+                        <h2 class="card-title">Preencha os dados pessoais</h2>
+                        <h4>@ViewBag.MensagemErro</h4>
+                    </header>
+
+
+
+                    <!--					INICIO FORM OFICIAL			-->
+
+                    <div class="card-body">
+                        <!-- NOME -->
+                        <div class="form-group row">
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Nome</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </span>
+                                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @placeholder = "Somente primeiro nome" } })
+                                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- SOBRENOME -->
+                        <div class="form-group row">
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Sobrenome</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </span>
+                                    @Html.EditorFor(model => model.Sobrenome, new { htmlAttributes = new { @class = "form-control", @placeholder = "Somente sobrenome" } })
+                                    @Html.ValidationMessageFor(model => model.Sobrenome, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <!-- SEXO -->
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Sexo</label>
+                            <div class="col-lg-6">
+                                @Html.DropDownListFor(model => model.Sexo, ViewBag.ListarSexo as SelectList, htmlAttributes: new { @class = "form-control form-control-lg mb-3" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <!-- DATA NASCIMENTO -->
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Data Nascimento</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </span>
+                                    </span>
+                                    @*<input id="date" data-plugin-masked-input="" data-input-mask="99/99/9999" placeholder="__/__/____" class="form-control">*@
+                                    @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control", @placeholder = "__/__/____" } })
+                                    @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 control-label text-lg-right pt-2" for="fc_inputmask_1">CPF</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-address-card"></i>
+                                        </span>
+                                    </span>
+                                    @*<input id="fc_inputmask_1" data-plugin-masked-input="" data-input-mask="999-99-9999" placeholder="___-__-____" class="form-control">  onkeyup      *@
+                                    @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control", @placeholder = "999.999.999-99 - Somente Números", @onKeyPress = "return Apenas_Numeros(event);", @maxlength = "11"} })
+                                    @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Telefone</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                    </span>
+
+                                    @Html.EditorFor(model => model.DDD1, new { htmlAttributes = new { style = "width: 30px;", @class = "form-control", @placeholder = "(11)", @onKeyPress = "return Apenas_Numeros(event);", @maxlength = "2" } })
+                                    @Html.EditorFor(model => model.Telefone1, new { htmlAttributes = new { style = "width: 70px;", @class = "form-control", @placeholder = "0123-1234 - Telefone de contato", @onKeyPress = "return Apenas_Numeros(event);" , @maxlength = "9" } })
+                                    @Html.ValidationMessageFor(model => model.Telefone1, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Telefone</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                    </span>
+                                    @Html.EditorFor(model => model.DDD2, new { htmlAttributes = new { style = "width: 30px;", @class = "form-control", @placeholder = "(11)", @onKeyPress = "return Apenas_Numeros(event);", @maxlength = "2" } })
+                                    @Html.EditorFor(model => model.Telefone2, new { htmlAttributes = new { style = "width: 70px;", @class = "form-control", @placeholder = "0123-1234 - Telefone de contato", @onKeyPress = "return Apenas_Numeros(event);", @maxlength = "9" } })
+                                    @Html.ValidationMessageFor(model => model.Telefone2, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Telefone</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                    </span>
+
+                                    @Html.EditorFor(model => model.DDD3, new { htmlAttributes = new { style = "width: 30px;", @class = "form-control", @placeholder = "(11)", @onKeyPress = "return Apenas_Numeros(event);", @maxlength = "2" } })
+                                    @Html.EditorFor(model => model.Telefone3, new { htmlAttributes = new { style = "width: 70px;", @class = "form-control", @placeholder = "0123-1234 - Telefone de contato", @onKeyPress = "return Apenas_Numeros(event);", @maxlength = "9" } })
+                                    @Html.ValidationMessageFor(model => model.Telefone3, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Telefone</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                    </span>
+
+                                    @Html.EditorFor(model => model.DDD4, new { htmlAttributes = new { style = "width: 30px;", @class = "form-control", @placeholder = "(11)", @onKeyPress = "return Apenas_Numeros(event);", @maxlength = "2" } })
+                                    @Html.EditorFor(model => model.Telefone4, new { htmlAttributes = new { style = "width: 70px;", @class = "form-control", @placeholder = "0123-1234 - Telefone de contato", @onKeyPress = "return Apenas_Numeros(event);", @maxlength = "9" } })
+                                    @Html.ValidationMessageFor(model => model.Telefone4, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Email</label>
+                            <div class="col-lg-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                    </span>
+                                    @Html.ValidationMessageFor(model => model.Telefone4, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "email@email.com.br" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 control-label text-lg-right pt-2">Senha</label>
+                            <div class="col-lg-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                    </span>
+                                    @Html.PasswordFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control", @maxlength = "12" } })
+                                    @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                </section>
+
+                <section class="card card-admin">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                        </div>
+
+                        <h2 class="card-title">Endereço</h2>
+                    </header>
+                    <br>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 control-label text-lg-right pt-2">Endereço</label>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-globe"></i>
+                                    </span>
+                                </span>
+                                @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 control-label text-lg-right pt-2">Número </label>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-map"></i>
+                                    </span>
+                                </span>
+                                @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 control-label text-lg-right pt-2">Complemento</label>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-map"></i>
+                                    </span>
+                                </span>
+                                @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 control-label text-lg-right pt-2">Bairro</label>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </span>
+                                </span>
+                                @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 control-label text-lg-right pt-2">Cidade </label>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </span>
+                                </span>
+                                @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 control-label text-lg-right pt-2">CEP </label>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </span>
+                                </span>
+
+                                @Html.EditorFor(model => model.CEP, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "return Apenas_Numeros(event);", @maxlength = "8" } })
+                                @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <!-- ESTADO -->
+                        <label class="col-lg-3 control-label text-lg-right pt-2">Estado</label>
+                        <div class="col-lg-6">
+                            @Html.DropDownListFor(model => model.Estado, ViewBag.ListarAllEstados as SelectList, "Selecione um Estado", htmlAttributes: new { @class = "form-control form-control-lg mb-3" })
+                        </div>
+                  </div>
+                    
+                </section>
+
+                <section class="card card-admin">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                        </div>
+
+                        <h2 class="card-title">Seu tamanho</h2>
+                    </header>
+                    <br>
+
+
+
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 control-label text-lg-right pt-2">Peso </label>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-weight"></i>
+                                    </span>
+                                </span>
+                                @Html.EditorFor(model => model.Peso, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 control-label text-lg-right pt-2">Altura</label>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-text-height"></i>
+                                    </span>
+                                </span>
+                                @Html.EditorFor(model => model.Altura, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div align="right">
+                    <input class="btn btn-primary btn-xl mb-2" type="submit" name="btnsalvar" value="Salvar" />
+                </div>
+            </div>
+
+
+            <!--					FIM FORM OFICIAL			-->
+
+        </div>
+
+    </div>
+}
+
+
+
+<script language=javascript>
+
+function fone(obj,prox) 
+{
+    switch (obj.value.length)
+    {
+	    case 1:
+		    obj.value = "(" + obj.value;
+		    break;
+	    case 3:
+		    obj.value = obj.value + ")";
+		    break;
+	    case 8:
+		    obj.value = obj.value + "-";
+		    break;
+	    case 13:
+		    prox.focus();
+		    break;
+    }
+}
+
+    function formata_data(obj,prox) {
+    switch (obj.value.length) {
+	    case 2:
+		    obj.value = obj.value + "/";
+		    break;
+	    case 5:
+		    obj.value = obj.value + "/";
+		    break;
+	    case 9:
+		    prox.focus();
+		    break;
+    }
+    }
+    function Apenas_Numeros(caracter)
+    {
+      var nTecla = 0;
+      if (document.all) {
+	      nTecla = caracter.keyCode;
+      } else {
+	      nTecla = caracter.which;
+      }
+      if ((nTecla> 47 && nTecla <58)
+      || nTecla == 8 || nTecla == 127
+      || nTecla == 0 || nTecla == 9  // 0 == Tab
+      || nTecla == 13) { // 13 == Enter
+	      return true;
+      } else {
+	      return false;
+      }
+    }
+    function validaCPF(cpf)
+     {
+       erro = new String;
+
+ 	    if (cpf.value.length == 11)
+ 	    {
+ 			    cpf.value = cpf.value.replace('.', '');
+ 			    cpf.value = cpf.value.replace('.', '');
+ 			    cpf.value = cpf.value.replace('-', '');
+
+ 			    var nonNumbers = /\D/;
+
+ 			    if (nonNumbers.test(cpf.value))
+ 			    {
+ 					    erro = "A verificacao de CPF suporta apenas números!";
+ 			    }
+ 			    else
+ 			    {
+ 					    if (cpf.value == "00000000000" ||
+ 							    cpf.value == "11111111111" ||
+ 							    cpf.value == "22222222222" ||
+ 							    cpf.value == "33333333333" ||
+ 							    cpf.value == "44444444444" ||
+ 							    cpf.value == "55555555555" ||
+ 							    cpf.value == "66666666666" ||
+ 							    cpf.value == "77777777777" ||
+ 							    cpf.value == "88888888888" ||
+ 							    cpf.value == "99999999999") {
+
+ 							    erro = "Número de CPF inválido!"
+ 					    }
+
+ 					    var a = [];
+ 					    var b = new Number;
+ 					    var c = 11;
+
+ 					    for (i=0; i<11; i++){
+ 							    a[i] = cpf.value.charAt(i);
+ 							    if (i < 9) b += (a[i] * --c);
+ 					    }
+
+ 					    if ((x = b % 11) < 2) { a[9] = 0 } else { a[9] = 11-x }
+ 					    b = 0;
+ 					    c = 11;
+
+ 					    for (y=0; y<10; y++) b += (a[y] * c--);
+
+ 					    if ((x = b % 11) < 2) { a[10] = 0; } else { a[10] = 11-x; }
+
+ 					    if ((cpf.value.charAt(9) != a[9]) || (cpf.value.charAt(10) != a[10])) {
+ 						    erro = "Número de CPF inválido.";
+
+ 					    }
+ 			    }
+ 	    }
+ 	    else
+ 	    {
+ 		    if(cpf.value.length == 0)
+ 			    return false
+ 		    else
+ 			    erro = "Número de CPF inválido.";
+ 	    }
+ 	    if (erro.length > 0) {
+ 			    alert(erro);
+ 			    cpf.focus();
+ 			    return false;
+ 	    }
+ 	    return true;
+     }
+
+     //envento onkeyup
+     function maskCPF(CPF) {
+ 	    var evt = window.event;
+ 	    kcode=evt.keyCode;
+ 	    if (kcode == 8) return;
+ 	    if (CPF.value.length == 3) { CPF.value = CPF.value + '.'; }
+ 	    if (CPF.value.length == 7) { CPF.value = CPF.value + '.'; }
+ 	    if (CPF.value.length == 11) { CPF.value = CPF.value + '-'; }
+     }
+
+     // evento onBlur
+     function formataCPF(CPF)
+     {
+ 	    with (CPF)
+ 	    {
+ 		    value = value.substr(0, 3) + '.' +
+ 				    value.substr(3, 3) + '.' +
+ 				    value.substr(6, 3) + '-' +
+ 				    value.substr(9, 2);
+ 	    }
+     }
+     function retiraFormatacao(CPF)
+     {
+ 	    with (CPF)
+ 	    {
+ 		    value = value.replace (".","");
+ 		    value = value.replace (".","");
+ 		    value = value.replace ("-","");
+ 		    value = value.replace ("/","");
+ 	    }
+     }
+
+</script>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
+
+
+

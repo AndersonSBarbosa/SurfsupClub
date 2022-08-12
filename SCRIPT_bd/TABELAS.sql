@@ -1,0 +1,149 @@
+use SurfsUpClub
+
+CREATE TABLE TB_CLIENTE(
+	IDCLIENTE int IDENTITY(1,1) NOT NULL,
+	NOME varchar(50) NULL,
+	SOBRENOME varchar(80) NULL,
+	IDFACEBOOK varchar(30) NULL,
+	EMAIL varchar(100) NULL,
+	CPF varchar(20) NULL,
+	RG varchar(20) NULL,
+	ALTURA varchar(4) NULL,
+	PESO varchar(4) NULL,
+	DATANASCIMENTO date NULL,
+	ENDERECO varchar(50) NULL,
+	NUMERO varchar(6) NULL,
+	COMPLEMENTO varchar(40) NULL,
+	BAIRRO varchar(30) NULL,
+	CEP varchar(8) NULL,
+	CIDADE varchar(50) NULL,
+	ESTADO varchar(2) NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+	IDSTATUS int NULL,
+	CONSTRAINT PK_TB_CLIENTE PRIMARY KEY (IDCLIENTE)
+	)
+
+----------------------------------------------------------------
+
+CREATE TABLE TB_FORNECEDOR(
+	IDFORNECEDOR int IDENTITY(1,1) NOT NULL,
+	NOMEFANTASIA varchar(40) NULL,
+	RAZAOSOCIAL varchar(60) NULL,
+	CNPJ varchar(20) NULL,
+	ENDERECO varchar(50) NULL,
+	NUMERO varchar(6) NULL,
+	COMPLEMENTO varchar(40) NULL,
+	BAIRRO varchar(30) NULL,
+	CEP varchar(8) NULL,
+	CIDADE varchar(50) NULL,
+	ESTADO varchar(2) NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+	IDSTATUS int NULL,
+	CONSTRAINT PK_TB_FORNECEDOR PRIMARY KEY (IDFORNECEDOR)
+)
+
+------------------------------------------------------------------
+
+CREATE TABLE TB_LOCACAO(
+	IDLOCACAO int IDENTITY(1,1) NOT NULL,
+	IDPRANCHA int NULL,
+	IDCLIENTE int NULL,
+	IDPLANO int NULL,
+	DATARETIRADA date NULL,
+	DATAENTREGA date NULL,
+	DATADEVOLUCAO datetime NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+	IDSTATUS int NULL,
+ CONSTRAINT PK_TB_LOCACAO PRIMARY KEY (IDLOCACAO) 
+)
+
+------------------------------------------------------------------------
+
+CREATE TABLE TB_PLANOS(
+	IDPLANO int IDENTITY(1,1) NOT NULL,
+	PLANO varchar(30) NULL,
+	VALOR decimal(18, 2) NULL,
+	DIAS int NULL,
+	MENSAL bit NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+	IDSTATUS int NULL,
+ CONSTRAINT PK_TB_PLANOS PRIMARY KEY (IDPLANO) 
+)
+
+------------------------------------------------------------------
+
+CREATE TABLE TB_PRANCHA(
+	IDPRANCHA int IDENTITY(1,1) NOT NULL,
+	PRANCHA varchar(30) NULL,
+	DESCRICAO varchar(90) NULL,
+	VOLUME varchar(10) NULL,
+	POLEGADAS varchar(10) NULL,
+	ESPESSURA varchar(10) NULL,
+	IDFORNECEDOR int NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+	IDSTATUS int NULL,
+ CONSTRAINT PK_TB_PRANCHA PRIMARY KEY (IDPRANCHA) 
+)
+
+-----------------------------------------------------------------------
+CREATE TABLE TB_USUARIO(
+	IDUSUARIO int IDENTITY(1,1) NOT NULL,
+	NOME varchar(30) NULL,
+	[LOGIN] varchar(25) NULL,
+	SENHA varchar(15) NULL,
+	EMAIL varchar(45) NULL,
+	IDNIVEL int NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+	IDSTATUS int NULL,
+ CONSTRAINT PK_TB_USUARIO PRIMARY KEY (IDUSUARIO) 
+ )
+ ------------------------------------------------------------------------------
+ 
+ CREATE TABLE TB_STATUS(
+	IDSTATUS int NOT NULL,
+	[STATUS] varchar(100) NULL,
+ CONSTRAINT PK_TB_STATUS PRIMARY KEY (IDSTATUS) 
+)
+----------------------------------------------------------------------------------
+
+CREATE TABLE TB_RESERVAS(
+	IDRESERVA int IDENTITY(1,1) NOT NULL,
+	IDPRANCHA int NULL,
+	IDCLIENTE int NULL,
+	IDPLANO int NULL,
+	DATARETIRADA date NULL,
+	DATAENTREGA date NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+	IDSTATUS int NULL,
+ CONSTRAINT PK_TB_RESERVAS PRIMARY KEY (IDRESERVA) 
+)
+-------------------------------------------------------------
+
+CREATE TABLE TB_PEDIDO(
+	IDPEDIDO int IDENTITY(1,1) NOT NULL,
+	IDCLIENTE int NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+	IDSTATUS int NULL,
+ CONSTRAINT PK_TB_PEDIDO PRIMARY KEY (IDPEDIDO) 
+)
+
+-------------------------------------------------------------------
+
+CREATE TABLE TB_PEDIDOITEM(
+	IDITEM int IDENTITY(1,1) NOT NULL,
+	IDPEDIDO int NULL,
+	IDPLANO int NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+	IDSTATUS int NULL,
+ CONSTRAINT PK_TB_PEDIDOITEM PRIMARY KEY (IDITEM) 
+)
+-------------------------------------------------------------------
+
+CREATE TABLE TB_CREDITOS (
+	IDCREDITO int IDENTITY(1,1) NOT NULL,
+	IDCLIENTE int NULL,
+	QUANTIDADE int NULL,
+	IDSTATUS int NULL,
+	DATACADASTRO datetime DEFAULT GETDATE(),
+ CONSTRAINT PK_TB_CREDITOS PRIMARY KEY (IDCREDITO) 
+)

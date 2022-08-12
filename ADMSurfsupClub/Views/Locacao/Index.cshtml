@@ -1,0 +1,64 @@
+﻿@model List<Entidades.Locacao>
+@{
+    ViewBag.Title = "Locacao";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MensagemExito
+    @ViewBag.MensagemErro
+    @ViewBag.MensagemInicio
+</div>
+
+@using (Html.BeginForm())
+{
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <table id="example" class="table table-striped responsive-utilities jambo_table">
+                <thead>
+                    <tr class="headings">
+                        <th></th>
+                        <th>Nome</th>
+                        <th>Cod.Prancha</th>
+                        <th>Prancha</th>
+                        <th>Período</th>
+                        <th>Dt Devolução</th>
+                        <th>Situação</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rs in Model)
+                    {
+                        <tr class="even pointer">
+                            <td>@rs.CodigoInterno/@rs.IdLocacao</td>
+                            <td>@rs.Cliente.Nome @rs.Cliente.Sobrenome</td>
+                            <td>@rs.Prancha.CodigoInterno</td>
+                            <td>@rs.Prancha.NomePrancha</td>
+                            <td>@rs.DataRetirada.ToString("dd/MM/yyyy") -> @rs.DataEntrega.ToString("dd/MM/yyyy")</td>
+                            <td>
+                            @if(rs.DataDevolucao.ToString() != "01/01/0001 00:00:00")
+                            {
+                                @rs.DataDevolucao.ToString("dd/MM/yyyy")
+                            }
+                                
+                            </td>
+                            <td>@rs.Status.NomeStatus</td>
+                            <td>
+                                @*<a class="btn btn-info" href="~/Locacao/Atualizar/@rs.IdLocacao">Ver</a>
+                                <a class="btn btn-info" href="~/Locacao/Retirada/@rs.IdLocacao">Ver</a>
+                                <a class="btn btn-info" href="~/Locacao/Entrega/@rs.IdLocacao">Ver</a>*@
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+    
+        </div>
+    </div>
+
+}

@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Pesquisar";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+@using (Html.BeginForm())
+{
+            <div class="form-horizontal">
+                <fieldset>
+                    <div class="form-group">
+
+                        <div class="input-group">
+                            @*@Html.Label("Buscar", new { @class = "control-label col-md-4" })*@
+                            @Html.TextBox("txtBusca", null, new { @class = "form-control" })
+                            <span class="input-group-btn">
+                                <input class="btn btn-primary" type="submit" value="Buscar" />
+                            </span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+}
+   
+    <table id="example" class="table table-striped responsive-utilities jambo_table">
+        <thead>
+            <tr class="headings">
+                <th>ID</th>
+                <th>CPF</th>
+                <th>Nome Completo</th>
+                <th>Cidade/SP</th>
+                <th>Data Cadastro</th>
+                <th>Situação</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rs in Model)
+            {
+                <tr class="even pointer">
+                    <td>@rs.CodigoInterno - @rs.IdCliente</td>
+                    <td>@rs.CPF</td>
+                    <td>@rs.Nome @rs.Sobrenome</td>
+                    <td>@rs.Cidade/@rs.Estado</td>
+                    <td>@rs.DataCadastro</td>
+                    <td>@rs.Status.NomeStatus</td>
+                    <td>
+                        <a class="btn btn-info" href="~/Cliente/Atualizar/@rs.IdCliente">Editar</a>
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+
+    </table>
+
+
+
+        </div>
